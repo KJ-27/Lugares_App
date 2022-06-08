@@ -9,7 +9,11 @@
         android:id="@+id/nav_lugar"
         android:name="com.example.lugares.ui.lugar.LugarFragment"
         android:label="@string/menu_lugar"
-        tools:layout="@layout/fragment_lugar" />
+        tools:layout="@layout/fragment_lugar" >
+        <action
+            android:id="@+id/action_nav_lugar_to_addLugarFragment"
+            app:destination="@id/addLugarFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -22,4 +26,13 @@
         android:name="com.example.lugares.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/addLugarFragment"
+        android:name="com.example.lugares.ui.lugar.AddLugarFragment"
+        android:label="fragment_add_lugar"
+        tools:layout="@layout/fragment_add_lugar" >
+        <action
+            android:id="@+id/action_addLugarFragment_to_nav_lugar"
+            app:destination="@id/nav_lugar" />
+    </fragment>
 </navigation>
