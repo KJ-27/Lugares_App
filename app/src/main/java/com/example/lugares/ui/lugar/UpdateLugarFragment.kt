@@ -10,11 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lugares.R
 import com.example.lugares.databinding.FragmentAddLugarBinding
+import com.example.lugares.databinding.FragmentUpdateLugarBinding
 import com.example.lugares.model.Lugar
 import com.example.lugares.viewmodel.LugarViewModel
 
-class AddLugarFragment : Fragment() {
-    private var _binding: FragmentAddLugarBinding? = null
+class UpdateLugarFragment : Fragment() {
+    private var _binding: FragmentUpdateLugarBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var lugarViewModel: LugarViewModel
@@ -24,16 +25,16 @@ class AddLugarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAddLugarBinding.inflate(inflater, container, false)
+        _binding = FragmentUpdateLugarBinding.inflate(inflater, container, false)
 
         lugarViewModel = ViewModelProvider(this).get(LugarViewModel::class.java)
 
-        binding.btAdd.setOnClickListener{insertarLugar()}
+        binding.btAdd.setOnClickListener{updateLugar()}
 
         return binding.root
     }
 
-    private fun insertarLugar() {
+    private fun updateLugar() {
         val nombre = binding.etNombre.text.toString()
         val correo = binding.etCorreo.text.toString()
         val telefono = binding.etTelefono.text.toString()

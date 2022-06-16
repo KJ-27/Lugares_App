@@ -18,6 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="TextView" />
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="38dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

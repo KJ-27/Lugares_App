@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_nav_lugar_to_addLugarFragment2"
             app:destination="@id/addLugarFragment" />
+        <action
+            android:id="@+id/action_nav_lugar_to_updateLugarFragment"
+            app:destination="@id/updateLugarFragment" />
     </fragment>
 
     <fragment
@@ -35,4 +38,13 @@
         android:name="com.example.lugares.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/updateLugarFragment"
+        android:name="com.example.lugares.ui.lugar.UpdateLugarFragment"
+        android:label="Actualizar Lugar"
+        tools:layout="@layout/fragment_update_lugar" >
+        <action
+            android:id="@+id/action_updateLugarFragment_to_nav_lugar"
+            app:destination="@id/nav_lugar" />
+    </fragment>
 </navigation>

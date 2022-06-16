@@ -20,6 +20,7 @@
     <string name="msg_Telefono">Teléfono (9999-9999)</string>
     <string name="msg_web">Sitio Web</string>
     <string name="bt_Agregar">Agregar</string>
+    <string name="bt_Actualizar">Actualizar</string>
     
     <string name="msgLugarAgregado">Lugar Agregado con exito</string>
     <string name="msgFaltanDatos">Faltan datos para agregar el lugar</string>
