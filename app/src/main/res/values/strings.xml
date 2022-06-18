@@ -12,8 +12,6 @@
     <string name="menu_lugar">Lugares</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     
     <string name="msg_nombre">Nombre del lugar</string>
     <string name="msg_Correo">Correo (xxxx@xxxx.xxx)</string>

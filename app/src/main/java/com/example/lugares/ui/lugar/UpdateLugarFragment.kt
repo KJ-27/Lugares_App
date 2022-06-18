@@ -29,7 +29,7 @@ class UpdateLugarFragment : Fragment() {
 
         lugarViewModel = ViewModelProvider(this).get(LugarViewModel::class.java)
 
-        binding.btAdd.setOnClickListener{updateLugar()}
+        binding.btActualizar.setOnClickListener{updateLugar()}
 
         return binding.root
     }

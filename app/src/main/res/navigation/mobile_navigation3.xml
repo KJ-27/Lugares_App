@@ -11,7 +11,7 @@
         android:label="Agregar lugar"
         tools:layout="@layout/fragment_add_lugar">
         <action
-            android:id="@+id/action_addLugarFragment_to_nav_lugar"
+            android:id="@+id/action_addLugarFragment_to_nav_luga3"
             app:destination="@id/nav_lugar" />
     </fragment>
     <fragment
@@ -20,11 +20,11 @@
         android:label="@string/menu_lugar"
         tools:layout="@layout/fragment_lugar" >
         <action
-            android:id="@+id/action_nav_lugar_to_addLugarFragment2"
+            android:id="@+id/action_nav_lugar_to_addLugarFragment3"
             app:destination="@id/addLugarFragment" />
         <action
-            android:id="@+id/action_nav_lugar_to_updateLugarFragment"
-            app:destination="@id/updateLugarFragment" />
+            android:id="@+id/action_nav_lugar_to_updateLugarFragment3"
+            app:destination="@id/updateLugarFragment3" />
     </fragment>
 
     <fragment
@@ -39,12 +39,15 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/updateLugarFragment"
+        android:id="@+id/updateLugarFragment3"
         android:name="com.example.lugares.ui.lugar.UpdateLugarFragment"
-        android:label="Actualizar Lugar"
+        android:label="fragment_update_lugar"
         tools:layout="@layout/fragment_update_lugar" >
         <action
-            android:id="@+id/action_updateLugarFragment_to_nav_lugar"
+            android:id="@+id/action_updateLugarFragment3_to_nav_lugar"
             app:destination="@id/nav_lugar" />
+        <argument
+            android:name="lugar"
+            app:argType="com.example.lugares.model.Lugar" />
     </fragment>
 </navigation>

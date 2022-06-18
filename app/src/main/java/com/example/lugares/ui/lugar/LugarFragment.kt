@@ -27,8 +27,9 @@ class LugarFragment : Fragment() {
         lugarViewModel = ViewModelProvider(this)[LugarViewModel::class.java]
         _binding = FragmentLugarBinding.inflate(inflater, container, false)
 
+        //action_nav_lugar_to_addLugarFragment2
         binding.addLugarFabButton.setOnClickListener{
-            findNavController().navigate(R.id.action_nav_lugar_to_addLugarFragment2)
+            findNavController().navigate(R.id.action_nav_lugar_to_addLugarFragment3)
         }
 
         // Activar el ReciclerView
