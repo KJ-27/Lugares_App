@@ -12,15 +12,22 @@
     <string name="menu_lugar">Lugares</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     
     <string name="msg_nombre">Nombre del lugar</string>
     <string name="msg_Correo">Correo (xxxx@xxxx.xxx)</string>
     <string name="msg_Telefono">Teléfono (9999-9999)</string>
     <string name="msg_web">Sitio Web</string>
     <string name="bt_Agregar">Agregar</string>
+    <string name="bt_Actualizar">Actualizar</string>
     
     <string name="msgLugarAgregado">Lugar Agregado con exito</string>
-    <string name="msgFaltanDatos">Faltan datos para agregar el lugar</string>
+    <string name="msgFaltanDatos">Faltan datos</string>
+
+    <string name="msgLugarActualizado">Lugar Actualizado con exito</string>
+
+    <string name="menu_delete">Eliminar</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="msgDeleted">Se elimino</string>
+    <string name="confirmarEliminar">Confirma que desea eliminar el lugar</string>
 </resources>

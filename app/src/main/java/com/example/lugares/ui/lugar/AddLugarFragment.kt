@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.lugares.R
 import com.example.lugares.databinding.FragmentAddLugarBinding
 import com.example.lugares.model.Lugar
@@ -41,6 +42,8 @@ class AddLugarFragment : Fragment() {
             val lugar= Lugar(0,nombre,correo,telefono,web, 0.0, 0.0, 0.0, "", "")
             lugarViewModel.addLugar(lugar)
             Toast.makeText(requireContext(),getString(R.string.msgLugarAgregado),Toast.LENGTH_LONG,).show()
+
+            findNavController().navigate(R.id.action_addLugarFragment_to_nav_lugar3)
         } else {
             Toast.makeText(requireContext(),getString(R.string.msgFaltanDatos),Toast.LENGTH_LONG,).show()
         }
