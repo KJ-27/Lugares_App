@@ -11,7 +11,7 @@
         android:label="Agregar lugar"
         tools:layout="@layout/fragment_add_lugar">
         <action
-            android:id="@+id/action_addLugarFragment_to_nav_luga3"
+            android:id="@+id/action_addLugarFragment_to_nav_lugar3"
             app:destination="@id/nav_lugar" />
     </fragment>
     <fragment

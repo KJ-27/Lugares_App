@@ -44,7 +44,7 @@ class UpdateLugarFragment : Fragment() {
             lugarViewModel.addLugar(lugar)
             Toast.makeText(requireContext(),getString(R.string.msgLugarAgregado),Toast.LENGTH_LONG,).show()
 
-            findNavController().navigate(R.id.action_addLugarFragment_to_nav_lugar)
+            findNavController().navigate(R.id.action_addLugarFragment_to_nav_lugar3)
         } else {
             Toast.makeText(requireContext(),getString(R.string.msgFaltanDatos),Toast.LENGTH_LONG,).show()
         }
