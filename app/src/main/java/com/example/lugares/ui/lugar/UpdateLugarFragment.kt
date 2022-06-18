@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.lugares.R
-import com.example.lugares.databinding.FragmentAddLugarBinding
 import com.example.lugares.databinding.FragmentUpdateLugarBinding
 import com.example.lugares.model.Lugar
 import com.example.lugares.viewmodel.LugarViewModel
@@ -20,6 +20,8 @@ class UpdateLugarFragment : Fragment() {
 
     private lateinit var lugarViewModel: LugarViewModel
 
+    private val args by navArgs<UpdateLugarFragmentArgs>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,7 +31,13 @@ class UpdateLugarFragment : Fragment() {
 
         lugarViewModel = ViewModelProvider(this).get(LugarViewModel::class.java)
 
-        binding.btActualizar.setOnClickListener{updateLugar()}
+        binding.etNombre.setText(args.lugar.nombre)
+        binding.etCorreo.setText(args.lugar.correo)
+        binding.etTelefono.setText(args.lugar.telefono)
+        binding.etCorreo.setText(args.lugar.correo)
+        binding.etWeb.setText(args.lugar.web)
+
+        binding.btAdd.setOnClickListener{ updateLugar() }
 
         return binding.root
     }
@@ -39,10 +47,11 @@ class UpdateLugarFragment : Fragment() {
         val correo = binding.etCorreo.text.toString()
         val telefono = binding.etTelefono.text.toString()
         val web = binding.etWeb.text.toString()
+
         if (validos(nombre, correo, telefono, web)) {
-            val lugar= Lugar(0,nombre,correo,telefono,web, 0.0, 0.0, 0.0, "", "")
-            lugarViewModel.addLugar(lugar)
-            Toast.makeText(requireContext(),getString(R.string.msgLugarAgregado),Toast.LENGTH_LONG,).show()
+            val lugar= Lugar(args.lugar.id,nombre,correo,telefono,web, 0.0, 0.0, 0.0, "", "")
+            lugarViewModel.updateLugar(lugar)
+            Toast.makeText(requireContext(),getString(R.string.msgLugarActualizado),Toast.LENGTH_LONG,).show()
 
             findNavController().navigate(R.id.action_addLugarFragment_to_nav_lugar3)
         } else {

@@ -21,5 +21,7 @@
     <string name="bt_Actualizar">Actualizar</string>
     
     <string name="msgLugarAgregado">Lugar Agregado con exito</string>
-    <string name="msgFaltanDatos">Faltan datos para agregar el lugar</string>
+    <string name="msgFaltanDatos">Faltan datos</string>
+
+    <string name="msgLugarActualizado">Lugar Actualizado con exito</string>
 </resources>

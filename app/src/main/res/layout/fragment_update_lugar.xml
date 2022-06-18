@@ -42,7 +42,7 @@
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/btActualizar"
+        android:id="@+id/btAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bt_Actualizar" />

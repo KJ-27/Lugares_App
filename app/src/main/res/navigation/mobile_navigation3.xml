@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/updateLugarFragment3"
         android:name="com.example.lugares.ui.lugar.UpdateLugarFragment"
-        android:label="fragment_update_lugar"
+        android:label="Actualizar Lugar"
         tools:layout="@layout/fragment_update_lugar" >
         <action
             android:id="@+id/action_updateLugarFragment3_to_nav_lugar"
