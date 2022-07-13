@@ -1,6 +1,10 @@
 package com.example.lugares.ui.lugar
 
+import android.Manifest
 import android.app.AlertDialog
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -30,17 +34,111 @@ class UpdateLugarFragment : Fragment() {
 
         lugarViewModel = ViewModelProvider(this).get(LugarViewModel::class.java)
 
+        //Textos para editar
         binding.etNombre.setText(args.lugar.nombre)
         binding.etCorreo.setText(args.lugar.correo)
         binding.etTelefono.setText(args.lugar.telefono)
         binding.etCorreo.setText(args.lugar.correo)
         binding.etWeb.setText(args.lugar.web)
 
+        //Text View de Altura/Latitud/Longitud
+        binding.tvAltura.text = args.lugar.altura.toString()
+        binding.tvLatitud.text = args.lugar.latitud.toString()
+        binding.tvLongitud.text = args.lugar.longitud.toString()
+
+        //Disparan las acciones de su determinado botón
+        binding.btnPhone.setOnClickListener { llamarLugar() }
+        binding.btnEmail.setOnClickListener { escribirCorreo() }
+        binding.btnWhatsApp.setOnClickListener { enviarWhatsApp() }
+        binding.btnWeb.setOnClickListener { verWebLugar() }
+        binding.btnLocation.setOnClickListener { verMapa() }
+
+        //Dispara el update
         binding.btAdd.setOnClickListener{ updateLugar() }
 
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    private fun llamarLugar() {
+        val telefono = binding.etTelefono.text
+
+        if (telefono.isNotEmpty()) {
+            val dialIntent = Intent(Intent.ACTION_CALL)
+            dialIntent.data = Uri.parse("tel:$telefono")
+
+            if (requireActivity().checkSelfPermission(Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+                requireActivity().requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 105)
+            } else {
+                requireActivity().startActivity(dialIntent)
+            }
+
+        }else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun escribirCorreo() {
+        val para = binding.etCorreo.text.toString()
+
+        if (para.isNotEmpty()) {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "message/rfc822"
+
+            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(para))
+            intent.putExtra(
+                Intent.EXTRA_SUBJECT, getString(R.string.msg_saludos) + " " + binding.etNombre.text
+            )
+            intent.putExtra(
+                Intent.EXTRA_TEXT, getString(R.string.msg_mensaje_correo)
+            )
+            startActivity(intent)
+        } else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun enviarWhatsApp() {
+        val telefono = binding.etTelefono.text
+
+        if (telefono.isNotEmpty()) {
+            val sendIntent = Intent(Intent.ACTION_VIEW)
+            val uri = "whatsapp://send?phone=506$telefono&text="+getString(R.string.msg_saludos)
+
+            sendIntent.setPackage("com.whatsapp")
+            sendIntent.data = Uri.parse(uri)
+            startActivity(sendIntent)
+
+        }else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun verWebLugar() {
+        val sitio = binding.etWeb.text.toString()
+
+        if (sitio.isNotEmpty()) {
+            val webPage = Uri.parse("https://$sitio")
+            val intent = Intent(Intent.ACTION_VIEW, webPage)
+            startActivity(intent)
+        }else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun verMapa() {
+        val latitud = binding.tvLatitud.text.toString().toDouble()
+        val longitud = binding.tvLongitud.text.toString().toDouble()
+
+        if (latitud.isFinite() && longitud.isFinite()) {
+            val location = Uri.parse("geo:$latitud,$longitud?z=18")
+            val mapIntent = Intent(Intent.ACTION_VIEW, location)
+            startActivity(mapIntent)
+        }else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

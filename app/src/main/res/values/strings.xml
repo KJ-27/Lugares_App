@@ -30,4 +30,13 @@
     <string name="no">No</string>
     <string name="msgDeleted">Se elimino</string>
     <string name="confirmarEliminar">Confirma que desea eliminar el lugar</string>
+
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
+    <string name="altura">Altura</string>
+
+    <string name="msg_datos">No hay datos</string>
+    <string name="msg_saludos">Hola</string>
+    <string name="msg_mensaje_correo">Saludos</string>
+    <string name="error">No Aplica</string>
 </resources>

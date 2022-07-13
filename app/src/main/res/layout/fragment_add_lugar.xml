@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Principal">
+    tools:context=".ui.lugar.AddLugarFragment">
 
     <EditText
         android:id="@+id/etNombre"
@@ -46,5 +46,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bt_Agregar" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="25sp"
+        android:padding="10sp"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_latitud1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/latitud"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_longitud1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/longitud"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_altura1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/altura"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_latitud2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_longitud2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_altura2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>
