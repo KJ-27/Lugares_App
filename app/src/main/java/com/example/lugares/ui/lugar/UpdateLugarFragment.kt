@@ -48,7 +48,7 @@ class UpdateLugarFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Si es eliminar
+        // Se es eliminar
         if (item.itemId == R.id.menu_delete){
             deleteLugar()
         }
