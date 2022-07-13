@@ -101,15 +101,44 @@ class UpdateLugarFragment : Fragment() {
     }
 
     private fun enviarWhatsApp() {
-        TODO("Not yet implemented")
+        val telefono = binding.etTelefono.text
+
+        if (telefono.isNotEmpty()) {
+            val sendIntent = Intent(Intent.ACTION_VIEW)
+            val uri = "whatsapp://send?phone=506$telefono&text="+getString(R.string.msg_saludos)
+
+            sendIntent.setPackage("com.whatsapp")
+            sendIntent.data = Uri.parse(uri)
+            startActivity(sendIntent)
+
+        }else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun verWebLugar() {
-        TODO("Not yet implemented")
+        val sitio = binding.etWeb.text.toString()
+
+        if (sitio.isNotEmpty()) {
+            val webPage = Uri.parse("https://$sitio")
+            val intent = Intent(Intent.ACTION_VIEW, webPage)
+            startActivity(intent)
+        }else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun verMapa() {
-        TODO("Not yet implemented")
+        val latitud = binding.tvLatitud.text.toString().toDouble()
+        val longitud = binding.tvLongitud.text.toString().toDouble()
+
+        if (latitud.isFinite() && longitud.isFinite()) {
+            val location = Uri.parse("geo:$latitud,$longitud?z=18")
+            val mapIntent = Intent(Intent.ACTION_VIEW, location)
+            startActivity(mapIntent)
+        }else{
+            Toast.makeText(requireContext(), getString(R.string.msg_datos), Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
