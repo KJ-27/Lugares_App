@@ -158,9 +158,12 @@ class UpdateLugarFragment : Fragment() {
         val correo = binding.etCorreo.text.toString()
         val telefono = binding.etTelefono.text.toString()
         val web = binding.etWeb.text.toString()
+        val altitud = binding.tvAltura.text.toString().toDouble()
+        val latitud = binding.tvLatitud.text.toString().toDouble()
+        val longitud = binding.tvLongitud.text.toString().toDouble()
 
         if (validos(nombre, correo, telefono, web)) {
-            val lugar= Lugar(args.lugar.id,nombre,correo,telefono,web, 0.0, 0.0, 0.0, "", "")
+            val lugar= Lugar(args.lugar.id,nombre,correo,telefono,web, latitud, longitud, altitud, "", "")
             lugarViewModel.updateLugar(lugar)
             Toast.makeText(requireContext(),getString(R.string.msgLugarActualizado),Toast.LENGTH_LONG,).show()
 
