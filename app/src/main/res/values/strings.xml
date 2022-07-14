@@ -39,4 +39,5 @@
     <string name="msg_saludos">Hola</string>
     <string name="msg_mensaje_correo">Saludos</string>
     <string name="error">No Aplica</string>
+    <string name="msg_imagen">imagen temporal</string>
 </resources>

@@ -121,6 +121,15 @@
                 android:layout_weight="1"
                 android:src="@drawable/ic_location" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:contentDescription="@string/msg_imagen"
+            android:scaleType="centerInside"
+            tools:ignore="ImageContrastCheck"
+            tools:src="@tools:sample/backgrounds/scenic" />
     </LinearLayout>
 
 </LinearLayout>
