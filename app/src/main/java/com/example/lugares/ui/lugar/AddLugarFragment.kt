@@ -15,10 +15,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lugares.R
@@ -126,12 +124,12 @@ class AddLugarFragment : Fragment() {
 
     private fun subeImagenNube(rutaAudio: String) {
         binding.msgMensaje.text = "Subiendo imagen..."
-        val imagenFile = imagenUtiles.imagenFile
+        val imageFile = imagenUtiles.imagenFile
 
-        if (imagenFile.exists() && imagenFile.isFile && imagenFile.canRead()) {
-            val ruta = Uri.fromFile(imagenFile)
+        if (imagenUtiles.isImagenFileInitialized() && imageFile.exists() && imageFile.isFile && imageFile.canRead()) {
+            val ruta = Uri.fromFile(imageFile)
             var reference: StorageReference = Firebase.storage.reference.child(
-                "lugaresApp/${Firebase.auth.currentUser?.uid}/audios/${imagenFile.name}}"
+                "lugaresApp/${Firebase.auth.currentUser?.uid}/audios/${imageFile.name}}"
             )
 
             val uploadTask = reference.putFile(ruta)

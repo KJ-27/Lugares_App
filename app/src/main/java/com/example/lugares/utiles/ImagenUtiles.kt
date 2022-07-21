@@ -30,6 +30,10 @@ class ImagenUtiles (
     lateinit var imagenFile: File
     private lateinit var currentPhotoPath: String
 
+    fun isImagenFileInitialized(): Boolean {
+        return this::imagenFile.isInitialized
+    }
+
     @SuppressLint("QueryPermissionsNeeded")
     private fun tomarFoto() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
