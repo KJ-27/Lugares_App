@@ -29,6 +29,8 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
 import com.lugares.utiles.AudioUtiles
 import com.lugares.utiles.ImagenUtiles
 
@@ -64,11 +66,11 @@ class AddLugarFragment : Fragment() {
 
         audioUtiles = AudioUtiles(
             requireActivity(), requireContext(),
-            binding.btAcction,
+            binding.btAccion,
             binding.btPlay,
             binding.btDelete,
-            "Grabando note de audio",
-            "Nota audio detenida"
+            getString(R.string.msg_graba_audio),
+            getString(R.string.msg_detener_audio)
         )
 
         tomarFotoActivity = registerForActivityResult(
@@ -81,9 +83,9 @@ class AddLugarFragment : Fragment() {
 
         imagenUtiles = ImagenUtiles(
             requireContext(),
-            binding.btFoto,
-            binding.btRotarL,
-            binding.btRotarR,
+            binding.btPhoto,
+            binding.btRotaL,
+            binding.btRotaR,
             binding.imagen,
             tomarFotoActivity
         )
@@ -101,7 +103,7 @@ class AddLugarFragment : Fragment() {
                 "lugaresApp/${Firebase.auth.currentUser?.uid}/audios/${audioFile.name}}"
             )
 
-            val uploadTask = reference.pathFile(ruta)
+            val uploadTask = reference.putFile(ruta)
             uploadTask
                 .addOnSuccessListener{
                     val downloadUrl = reference.downloadUrl
@@ -132,13 +134,13 @@ class AddLugarFragment : Fragment() {
                 "lugaresApp/${Firebase.auth.currentUser?.uid}/audios/${imagenFile.name}}"
             )
 
-            val uploadTask = reference.pathFile(ruta)
+            val uploadTask = reference.putFile(ruta)
             uploadTask
                 .addOnSuccessListener{
                     val downloadUrl = reference.downloadUrl
                     downloadUrl.addOnSuccessListener{
                         val rutaImagen = it.toString()
-                        insertarLugar(rutaImagen)
+                        insertarLugar(rutaAudio, rutaImagen)
                     }
                 }
 

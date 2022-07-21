@@ -39,5 +39,20 @@
     <string name="msg_saludos">Hola</string>
     <string name="msg_mensaje_correo">Saludos</string>
     <string name="error">No Aplica</string>
-    <string name="msg_imagen">imagen temporal</string>
+
+    //Semana 9-10
+    <string name="msgEscucharAudio">Escuchar nota de audio</string>
+    <string name="msg_imagen">Imagen del lugar</string>
+    <string name="graba_pausa">Graba o pausa grabación</string>
+    <string name="escuchaPlay">Escucha grabación</string>
+    <string name="delete_nota">Borra nota de audio</string>
+    <string name="play_nota">Escuchar nota de audio</string>
+    <string name="rec_stop_nota">Graba o detiene nota de audio</string>
+    <string name="take_photo">Toma foto</string>
+    <string name="rotate_l">Rota izquierda</string>
+    <string name="rotale_r">Rota a la derecha</string>
+    <string name="msg_graba_audio">Grabando nota de audio</string>
+    <string name="msg_detener_audio">Nota de audio detenida</string>
+    <string name="msg_subiendo_audio">Subiendo Nota Audio</string>
+    <string name="msg_subiendo_imagen">Subiendo imagen</string>
 </resources>
